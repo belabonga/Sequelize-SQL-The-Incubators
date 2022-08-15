@@ -1,5 +1,3 @@
-# hcktv-P1-W4D1-TheIncubators
-
 # The Incubator Part 1
 ## Learning Competencies
 - mampu memodelkan requirement ke dalam bentuk erd
@@ -79,4 +77,47 @@ Pada halaman detail Incubator ketika tombol add  jika ditekan maka akan menampil
 Ketika tombol submit ditekan, maka form akan dikirimkan pada route POST /incubators/:incubatorId/startup/add dan kembali ke halaman detail incubator tersebut. Kolom action pada list startup (perhatikan gambar dibawah) akan dibahas pada release berikutnya.
 
 <img width="895" alt="Screen Shot 2022-08-15 at 03 36 57" src="https://user-images.githubusercontent.com/22075597/184554020-aebc07d0-4197-463e-b845-52aa46e2b0be.png">
+
+# The Incubator Part 2
+## Learning Competencies
+- mampu menggunakan sequelize validasi
+- mampu menggunakan helper pada express
+- mampu melakukan filter data
+
+## Release 3 - Incubator StartUp
+### Validation
+Buatlah validasi dengan ketentuan :
+- Manfaatkan sequelize validation untuk setiap data milik StartUp, agar tidak ada kolom yang kosong (null & empty).
+- Usia berdiri sebuah StartUp adalah minimal 5 tahun. (Date Found)
+- Role of Founder Hustler hanya dapat di tempati oleh founder dengan pendididkan minimal S2.
+Notes: Seluruh ketentuan validasi diatas berlaku dalam melakukan  input maupun update data. (Gunakan custom validation untuk validasi Role of Founder)
+### Age
+Pada data StartUp yang ditampilkan, terdapat kolom Age yang merupakan umur StartUp (date found), manfaatkanlah sebuah getter pada model StartUp untuk mendapatkan umur tersebut.
+
+### Delete
+Ketika tombol delete ditekan maka akan mengarah ke route GET /incubator/:incubatorId/startup/:strartupId/delete yang akan menghapus data StartUp, lalu arahkan kembali ke halaman Incubator Detail, tempat StartUp tersebut dimentoring.
+Dan jangan lupa untuk memberi notifikasi dengan mengirim info nama StartUp beserta Founder yang dihapus ke incubator detail.
+
+<img width="602" alt="Screen Shot 2022-08-15 at 10 14 35" src="https://user-images.githubusercontent.com/22075597/184571179-0ad35f32-7716-43b9-b966-e11b51fbae20.png">
+
+### Edit
+Ketika tombol edit ditekan maka arahkan ke route GET /incubator/:incubatorId/startup/:startupId/edit yang akan membuka halaman edit StartUp (pastikan setiap data StartUp sudah terpopulate dengan benar pada setiap input).
+ketika tombol submit ditekan maka form akan dikirimkan ke route 
+POST /incubator/:incubatorId/startup/:startupId/edit
+
+## Release 4 - StartUp
+### Get Data with Static Method
+Pada route GET /start-up tentu saja kamu akan menampilkan data StartUp. 
+Buatlah tombol, yang akan mengarah ke GET /start-up dan mengambil data StartUp berdasarkan role of founder yang sudah diurutkan secara DESCENDING berdasarkan nilai valuation startup tersebut dan kamu bisa manfaatkanlah req.query untuk fitur ini. 
+Buatlah static method bernama getStartUpByRoleOfFounder pada model StartUp untuk mendapatkan data StartUp berdasarkan role of founder.
+<img width="778" alt="Screen Shot 2022-08-15 at 10 16 00" src="https://user-images.githubusercontent.com/22075597/184571410-91deb507-733d-47f8-b27c-5ea1464b7809.png">
+
+Bila menekan tombol Hustler :
+<img width="684" alt="Screen Shot 2022-08-15 at 10 16 08" src="https://user-images.githubusercontent.com/22075597/184571428-7785354a-3cff-44df-af33-574782801c12.png">
+
+Bila menekan tombol Hipster :
+<img width="665" alt="Screen Shot 2022-08-15 at 10 16 16" src="https://user-images.githubusercontent.com/22075597/184571458-1922928b-61da-4e8d-9717-91d9e062e7e5.png">
+
+Bila menekan tombol Hacker :
+<img width="641" alt="Screen Shot 2022-08-15 at 10 16 56" src="https://user-images.githubusercontent.com/22075597/184571472-ecb8a928-d719-4128-affb-7e202f19f813.png">
 
