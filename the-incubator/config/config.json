@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "TheIncubatorDB",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": 5433
+  }
+}
